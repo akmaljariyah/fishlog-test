@@ -1,0 +1,49 @@
+@baseURL = http://localhost:8000/api
+@authToken = Bearer 2|YOEgTObdsJTEteGl6OEU6LdJokxshqmKxOxJbOsE
+
+### auth login
+POST {{baseURL}}/me
+content-type: application/json
+accept: application/json
+
+{
+    "email": "dimas@gmail.com",
+    "password": "123456"
+}
+
+### auth register
+POST {{baseURL}}/register
+content-type: application/json
+accept: application/json
+# authorization: {{authToken}}
+
+{
+    "nama": "Dimas8",
+    "email": "dimas8@gmail.com",
+    "password": "123456"
+}
+
+
+### view all user pagination default 5
+GET {{baseURL}}/user
+content-type: application/json
+accept: application/json
+authorization: {{authToken}}
+
+
+### view all user pagination 
+GET {{baseURL}}/user?show=10
+content-type: application/json
+accept: application/json
+authorization: {{authToken}}
+
+### search user by email
+POST {{baseURL}}/user/search/email
+content-type: application/json
+accept: application/json
+authorization: {{authToken}}
+
+{
+    "email" : "dimas8@gmail.com"
+}
+
